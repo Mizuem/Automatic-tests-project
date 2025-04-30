@@ -1,0 +1,21 @@
+services:
+
+  easyapointments:
+    image: docker.io/asmrcka/its2025app:1
+    restart: always
+    ports:
+      - '8080:80'
+    environment:
+      - BASE_URL=http://localhost
+      - DEBUG_MODE=TRUE
+      - DB_HOST=mysql
+      - DB_NAME=easyappointments
+      - DB_USERNAME=root
+      - DB_PASSWORD=secret
+    
+  mysql:
+    image: docker.io/asmrcka/its2025db:1
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=secret
+      - MYSQL_DATABASE=easyappointments
