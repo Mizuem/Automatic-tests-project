@@ -1,37 +1,45 @@
-### Structural Coverage Matrix
+# Cypress E2E Testing for Appointment Booking System
 
-| Page 			                               | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24 | 25 | 26 | 27 | 28 | 29 | 30 | 31 | 32 | 33 | 34 | 35 | 36 |
-|----------------------------------------------|---|---|---|---|---|---|---|---|---|----|----|----|----|----|----|----|----|----|----|----|----|----|----|----|----|----|----|----|----|----|----|----|----|----|----|----|----|
-| Appointment Time Page                        | x |   |   |   | x |   |   | x |   |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |
-| Customer Info Page                           |   | x |   | x |   |   | x |   |   |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |
-| Appointment Confirmation Page                |   |   | x |   |   | x |   |   |   |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |
-| Success Page                                 |   |   | x |   |   |   |   |   |   |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |
-| Customers Page (Admin)                       |   |   |   |   |   |   |   |   | х | x  | x  | x  | x  | x  | x  | x  | x  |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |
-| Calendar Page (Admin)                        |   |   |   |   |   |   |   |   |   |    |    |    |    |    |    |    |    | x  | x  | x  | x  |  х | x  | x  | x  | x  | x  | х  | x  |  х | x  | x  | x  |  х |  х |  х |
+This project contains automated end-to-end tests for an appointment booking system using Cypress. The tests verify functionality both from client and admin perspectives.
 
-### Activity & Verification Coverage Matrix
+## Project Overview
 
-| Activity / Verification                                  | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24 | 25 | 26 | 27 | 28 | 29 | 30 | 31 | 32 | 33 | 34 | 35 | 36 |
-|----------------------------------------------------------|---|---|---|---|---|---|---|---|---|----|----|----|----|----|----|----|----|----|----|----|----|----|----|----|----|----|----|----|----|----|----|----|----|----|----|----|----|
-| Selecting appointment time (guest)                      | x |   |   |   | x |   |   | x |   |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |
-| Providing contact info (guest)                          |   | x |   | x |   |   | x |   |   |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |
-| Confirming appointment (guest)                          |   |   | x |   |   | x |   |   |   |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |
-| Validating empty required fields                        |   |   |   | x |   |   |   |   |   |    |    |    |    |    |    |    |    |    |    |    |    |    |    |  х |    |    |    |    |    |    |    |    |    |    |    |    |
-| Hidden booked time from others                          |   |   |   |   | x |   |   |   |   |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |
-| Navigating forward/backward in reservation              |   |   |   |   |   | x | x | x |   |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |
-| Selecting/creating/deleting clients (admin)             |   |   |   |   |   |   |   |   | x | x  | x  | x  | x  | x  |    | x  |    |  x |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |
-| Editing client records (admin)                          |   |   |   |   |   |   |   |   |   |    |    |    |    |    | x  |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |
-| Viewing appointments (admin)                            |   |   |   |   |   |   |   |   |   |    |    |    |    |    |    |    | x  |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |
-| Editing reservation details (admin)                     |   |   |   |   |   |   |   |   |   |    |    |    |    |    |    |    |    |    | x  | x  | x  |  х | x  |  х |    |    | х  |    |    |    |    |    |    |    |    |    |
-| Creating new appointments / unavailability (admin)      |   |   |   |   |   |   |   |   |   |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    | x  | x  | x  |    |    |  х | х  |    |    |    |    |    |
-| Deleting reservation (admin)                            |   |   |   |   |   |   |   |   |   |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    | х  | х  |    |    |    |    |    |    |    |
-| Filtering by provider/service (admin)                   |   |   |   |   |   |   |   |   |   |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    | х  | х  |    |    |    |
-| Calendar sync (admin)                                   |   |   |   |   |   |   |   |   |   |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |  х |  х |  х |
+The testing suite covers three main feature areas:
+- Guest reservation process
+- Admin client management
+- Admin reservation management
 
-### Test-to-Feature Mapping Matrix
+## Test Structure
 
-| Feature File                    | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24 | 25 | 26 | 27 | 28 | 29 | 30 | 31 | 32 | 33 | 34 | 35 | 36 |
-|--------------------------------|---|---|---|---|---|---|---|---|---|----|----|----|----|----|----|----|----|----|----|----|----|----|----|----|----|----|----|----|----|----|----|----|----|----|----|----|----|
-| guest_reservation.feature      | x | x | x | x | x | x | x | x |   |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |
-| admin_clients_managment.feature|   |   |   |   |   |   |   |   | x | x  | x  | x  | x  | x  | x  | x  | x  | x  |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |
-| admin_reservation_managment.feature |   |   |   |   |   |   |   |   |   |    |    |    |    |    |    |    |    | x  | x  | x  | x  |  х | x  | x  | x  | x  | x  |  х | x  |  х  | x  | x  | x  |  х  |  х  |    |
+Tests are organized into three main Cypress test files:
+- `guest_reservation.cy.js`: Verifies the complete guest appointment booking flow
+- `admin_clients_manage.cy.js`: Tests client management features for administrators
+- `admin_res_manage.cy.js`: Validates reservation management capabilities for administrators
+
+## Key Features Tested
+
+### Guest Reservation
+- Appointment time selection
+- Contact information submission
+- Appointment confirmation
+- Appointment modification
+
+### Admin Client Management
+- Client search functionality
+- Client information editing
+- Client notes management
+- Customer appointment viewing
+
+### Admin Reservation Management
+- Creating appointments from calendar
+- Editing existing reservations
+- Deleting reservations
+- Setting up unavailability periods
+- Calendar synchronization options
+
+## Getting Started
+```
+docker compose up -d
+npx cypress open
+
+```
